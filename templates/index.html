@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome Home!</h1>
+    You are using the browser with following user-agent: <u><strong>{{user_agent}}</strong></u>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    <p>The local date and time is <strong>{{ moment(current_time).format('LLL') }}</strong>.</p>
+    <p>That was <strong>{{ moment(current_time).fromNow(refresh=True) }}</strong></p>
+{% endblock %}
